@@ -1,0 +1,120 @@
+{
+  "name": "Mensagem WhatsApp",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/AC7d8426362785b5eb50c0ec66cfc7de1e/Messages.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "From",
+              "value": "whatsapp:+14155238886"
+            },
+            {
+              "name": "To",
+              "value": "={{'whatsapp:' + $json.telefone}}"
+            },
+            {
+              "name": "Body",
+              "value": "={{'Olá ' + $json.nome + ', sua tarefa está pendente. Bora finalizar!'}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -240,
+        -304
+      ],
+      "id": "0e6074ba-44a6-459a-963a-7635e0063932",
+      "name": "Mensage_WhatsApp",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "C7Dix1AIE4v4f6Kw",
+          "name": "Unnamed credential 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  { json: { nome: \"Jackson\", telefone: \"+558391819633\" } },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -544,
+        -304
+      ],
+      "id": "ed8d60e6-284b-4dad-889d-7fa009382a58",
+      "name": "Gerar_Contatos"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -848,
+        -304
+      ],
+      "id": "6bbcb12d-5e4c-46dc-bf26-e59942ce3371",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Mensage_WhatsApp": {
+      "main": [
+        []
+      ]
+    },
+    "Gerar_Contatos": {
+      "main": [
+        [
+          {
+            "node": "Mensage_WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Gerar_Contatos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "37769f8c-4a14-4184-91ad-a3a26e33e132",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "22f15dcadfc214cb541e82214dedf29cbec2f3316beaa8bd57af4444f35493c6"
+  },
+  "id": "DlX7sR8xXV7sJXLm",
+  "tags": []
+}
