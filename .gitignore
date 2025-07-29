@@ -1,4 +1,5 @@
 .env
 data/
+.n8n/
 *.log
 node_modules/
