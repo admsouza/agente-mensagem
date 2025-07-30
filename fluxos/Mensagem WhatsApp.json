@@ -30,8 +30,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        -240,
-        -304
+        -432,
+        -464
       ],
       "id": "0e6074ba-44a6-459a-963a-7635e0063932",
       "name": "Mensage_WhatsApp",
@@ -49,31 +49,22 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -544,
-        -304
+        -736,
+        -464
       ],
       "id": "ed8d60e6-284b-4dad-889d-7fa009382a58",
       "name": "Gerar_Contatos"
     },
     {
-      "parameters": {
-        "rule": {
-          "interval": [
-            {
-              "field": "minutes",
-              "minutesInterval": 1
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.scheduleTrigger",
-      "typeVersion": 1.2,
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
       "position": [
-        -848,
-        -304
+        -1072,
+        -464
       ],
-      "id": "6bbcb12d-5e4c-46dc-bf26-e59942ce3371",
-      "name": "Schedule Trigger"
+      "id": "1c7be504-fe4f-4f2b-80e7-821f4f24b46c",
+      "name": "When clicking ‘Execute workflow’"
     }
   ],
   "pinData": {},
@@ -94,7 +85,7 @@
         ]
       ]
     },
-    "Schedule Trigger": {
+    "When clicking ‘Execute workflow’": {
       "main": [
         [
           {
@@ -106,11 +97,11 @@
       ]
     }
   },
-  "active": true,
+  "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "37769f8c-4a14-4184-91ad-a3a26e33e132",
+  "versionId": "4371f8b3-a585-4078-9ab3-ec855145cf78",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "22f15dcadfc214cb541e82214dedf29cbec2f3316beaa8bd57af4444f35493c6"
